@@ -3,11 +3,14 @@
 You have been called in to help with the program that data entry staff use to input data that is then uploaded into the database.
 
 The program writes out CSV files, which are uploaded into a database table with the following columns:
+
 ID int not null
+
 FieldName nvarchar(255)
+
 FieldData nvarchar(255)
 
-User will typically enter a few fields at a time, and upload them. The program can run by “dotnet run [filename]” e.g. “dotnet run Users.txt”.
+User will typically enter a few fields at a time, and upload them. The program can run by “dotnet run [filename]” e.g. “dotnet run Users.txt”.
 
 The program has been recently enhanced to perform type checking for fields like date of birth and salary, as some staff were entering invalid values. This has been largely hailed as a success as it has prevented some staff from entering invalid values.
 
