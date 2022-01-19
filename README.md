@@ -3,7 +3,7 @@
 You have been called in to help with the program that data entry staff use to input data that is then uploaded into the database.
 
 The program writes out CSV files, which are uploaded into a database table with the following columns:
-ID int not
+ID int not null
 FieldName nvarchar(255)
 FieldData nvarchar(255)
 
