@@ -25,3 +25,6 @@ Refactoring: some of the other technical team have wondered if there is any refa
 Enhancement: some users have complained that sometimes, they run the program for quite a long time, and if their computer crashes, they lose the whole file. Can you do anything to improve this situation, so that if their computer crashes they don’t lose the whole file?
 
 Unit tests: some developers have said there is an upcoming project to ask for more advanced parsing, and they have wondered if some unit tests would be a good idea to protect existing functionality - and any bug fix you are able to come up with - from regressing - as well as to test any new functionality.
+
+
+**There is no specific time limit for this exercise - please spend as long on it as you see fit.**
