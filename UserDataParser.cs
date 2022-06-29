@@ -1,6 +1,5 @@
 using System;
 using System.IO;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,7 +16,9 @@ namespace UserCreator
 
         private int GetNextId()
         {
-            return Interlocked.Increment(ref nextId);
+            Interlocked.Increment(ref nextId);
+
+            return nextId;
         }
 
         public bool TryConvertData(string input, out T data)
