@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace UserCreator
+namespace UserCreator.Interfaces
 {
     public interface IUserDataEnterer<U> where U : class
     {

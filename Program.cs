@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading.Tasks;
+using UserCreator.Interfaces;
 
 namespace UserCreator
 {
@@ -18,13 +19,13 @@ namespace UserCreator
             await using var outputFile = File.OpenWrite(args[0]);
             await using var outputFileWriter = new StreamWriter(outputFile);
 
-            var factory = new FieldTypeOperationFactory();
+            IFieldTypeOperations fieldTypeOperations = new FieldTypeOperations(new WriteUserDataToFile());
 
             while (!string.IsNullOrEmpty(fieldType = await GetFieldType()))
             {
                 var fieldData = await GetData(fieldType);
 
-                await factory.OperationFactory(fieldType, fieldData, outputFileWriter);
+                await fieldTypeOperations.FieldTypeOperation(fieldType, fieldData, outputFileWriter);
 
                 Console.WriteLine($"============");
             }
