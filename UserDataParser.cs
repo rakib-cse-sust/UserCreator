@@ -12,6 +12,8 @@ namespace UserCreator
         public async Task WriteDataToCsv(TextWriter textWriter, string fieldName, object data)
         {
             await textWriter.WriteLineAsync($"{GetNextId()},{fieldName},{data}");
+
+            await textWriter.FlushAsync();
         }
 
         private int GetNextId()
