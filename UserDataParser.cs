@@ -1,28 +1,9 @@
 using System;
-using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace UserCreator
 {
-    public class UserDataParser<T> : IUserDataEnterer
+    public class UserDataParser<T> // : IUserDataEnterer
     {
-        public static int nextId;
-
-        public async Task WriteDataToCsv(TextWriter textWriter, string fieldName, object data)
-        {
-            await textWriter.WriteLineAsync($"{GetNextId()},{fieldName},{data}");
-
-            await textWriter.FlushAsync();
-        }
-
-        private int GetNextId()
-        {
-            Interlocked.Increment(ref nextId);
-
-            return nextId;
-        }
-
         public bool TryConvertData(string input, out T data)
         {
             try

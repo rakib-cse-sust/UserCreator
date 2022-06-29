@@ -1,10 +1,9 @@
-using System.IO;
 using System.Threading.Tasks;
 
 namespace UserCreator
 {
-    interface IUserDataEnterer
+    public interface IUserDataEnterer<U> where U : class
     {
-        Task WriteDataToCsv(TextWriter streamWriter, string fieldName, object data);
-    }
+        Task WriteDataToCsv(U writer, string fieldName, object data);
+    }    
 }

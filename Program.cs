@@ -18,34 +18,17 @@ namespace UserCreator
             await using var outputFile = File.OpenWrite(args[0]);
             await using var outputFileWriter = new StreamWriter(outputFile);
 
-            while(!string.IsNullOrEmpty(fieldType = await GetFieldType()))
+            var factory = new FieldTypeOperationFactory();
+
+            while (!string.IsNullOrEmpty(fieldType = await GetFieldType()))
             {
-                if(string.Equals("DateOfBirth", fieldType, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    await WriteUserDataToFile<DateTime>(fieldType, outputFileWriter);
-                }
-                else if(string.Equals("Salary", fieldType, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    await WriteUserDataToFile<decimal>(fieldType, outputFileWriter);
-                }
-                else
-                {
-                    await WriteUserDataToFile<string>(fieldType, outputFileWriter);
-                }
+                var fieldData = await GetData(fieldType);
+
+                await factory.OperationFactory(fieldType, fieldData, outputFileWriter);
 
                 Console.WriteLine($"============");
             }
             return 0;
-        }
-
-        private static async Task WriteUserDataToFile<TDataType>(string fieldName, StreamWriter streamWriter)
-        {
-            var userDataParser = new UserDataParser<TDataType>();
-            var dataAsString = await GetData(fieldName);
-            if(userDataParser.TryConvertData(dataAsString, out var data))
-            {
-                await userDataParser.WriteDataToCsv(streamWriter, fieldName, data);
-            }
         }
 
         static async Task<string> GetFieldType()
@@ -59,7 +42,5 @@ namespace UserCreator
             await Console.Out.WriteLineAsync($"Please enter user's {fieldName}:");
             return await Console.In.ReadLineAsync();
         }
-
     }
-
 }
