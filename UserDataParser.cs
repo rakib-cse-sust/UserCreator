@@ -2,13 +2,14 @@ using System;
 
 namespace UserCreator
 {
-    public class UserDataParser<T> // : IUserDataEnterer
+    public class UserDataParser<T>
     {
         public bool TryConvertData(string input, out T data)
         {
             try
             {
                 var parseMethod = typeof(T).GetMethod("Parse", 0, new [] {typeof(string)});
+
                 if(parseMethod != null) 
                 {
                     data = (T)parseMethod.Invoke(null, new[] { input });
@@ -18,6 +19,7 @@ namespace UserCreator
                 {
                     data = (T)Convert.ChangeType(input, typeof(T));
                 }
+
                 return true;
             }
             catch(Exception e)
