@@ -10,7 +10,17 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "c7210ea9-e281-4fe5-bc47-9ef876e16c1e": {
+      "ProjectGuid": "c7210ea9-e281-4fe5-bc47-9ef876e16c1e",
+      "DisplayName": "UserCreator.Tests",
+      "ColorIndex": 1
+    },
+    "d740acbf-04b1-4283-9946-96f7e7f2f292": {
+      "ProjectGuid": "d740acbf-04b1-4283-9946-96f7e7f2f292",
+      "DisplayName": "UserCreator.Tests",
+      "ColorIndex": 2
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 3
 }
